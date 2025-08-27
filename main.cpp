@@ -1,0 +1,352 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<graphics.h>
+#include<conio.h>
+#include"prims.h"
+#include"kruskals.h"
+#include"trees.h"
+#include"array.h"
+#include"linklist.h"
+#include"searching.h"
+#include"sorting.h"
+#include"stack.h"
+#include"queue.h"
+#include"string.h"
+#include"ui.h"
+int main()
+{
+    char a[10],f[20]={0};
+    int gd=DETECT,gm;
+    initgraph(&gd,&gm,"");
+    setbkcolor(WHITE);
+    setfillstyle(SOLID_FILL,WHITE);
+    rectangle(0,0,850,850);
+    floodfill(1,1,WHITE);
+    setcolor(BLACK);
+    while(1)
+    {
+        screen1();
+        a[0]=getch();
+        if(a[0]=='c')
+        {
+            press(100,450);
+            delay(500);
+            return 0;
+        }
+        while(a[0]=='a')//data structure
+        {
+            if(f[0]==0)press(100,250);
+            f[0]=0;
+            cleardevice();
+            screen2();
+            a[1]=getch();
+            if(a[1]=='c')
+            {
+                press(100,450);
+                cleardevice();
+                screen1();
+                break;
+            }
+            while(a[1]=='a')//linear data structure
+            {
+                if(f[1]==0)press(100,250);
+                f[1]=0;
+                cleardevice();
+                screen3();
+                a[2]=getch();
+                if(a[2]=='f')
+                {
+                    press(340,450);
+                    cleardevice();
+                    screen2();
+                    break;
+                }
+                while(a[2]=='a')//array
+                {
+                    if(f[2]==0)press(100,250);
+                    f[2]=0;
+                    array_insertion();
+                    back();
+                    char c=getch();
+                    if(c=='a')
+                    {
+                        press(30,30);
+                        break;
+                    }
+                    f[2]=1;
+                }
+                while(a[2]=='b')//linked list 2 part
+                {
+                    if(f[3]==0)press(100,350);
+                    f[3]=0;
+                    cleardevice();
+                    screen4();
+                    a[3]=getch();
+                    if(a[3]=='c')
+                    {
+                        press(100,450);
+                        cleardevice();
+                        screen3();
+                        break;
+                    }
+                    while(a[3]=='a')
+                    {
+                        if(f[4]==0)press(100,250);
+                        f[4]=0;
+                        linkedlist_insertion();
+                        back();
+                        char c=getch();
+                        if(c=='a')
+                        {
+                            press(30,30);
+                            break;
+                        }
+                        f[4]=1;
+                    }
+                    while(a[3]=='b')
+                    {
+                        if(f[5]==0)press(100,350);
+                        f[5]=0;
+                        linkedlist_deletion();
+                        back();
+                        char c=getch();
+                        if(c=='a')
+                        {
+                            press(30,30);
+                            break;
+                        }
+                        f[5]=1;
+                    }
+                    f[3]=1;
+                }
+                while(a[2]=='c')
+                {
+                    if(f[6]==0)press(100,450);
+                    f[6]=0;
+                    stack();
+                    back();
+                    char c=getch();
+                    if(c=='a')
+                    {
+                        press(30,30);
+                        break;
+                    }
+                    f[6]=1;
+                }
+                while(a[2]=='d')
+                {
+                    if(f[7]==0)press(340,250);
+                    f[7]=0;
+                    queue();
+                    back();
+                    char c=getch();
+                    if(c=='a')
+                    {
+                        press(30,30);
+                        break;
+                    }
+                    f[7]=1;
+                }
+                while(a[2]=='e')//string
+                {
+                    if(f[20]==0)press(340,350);
+                    f[20]=0;
+                    string();
+                    back();
+                    char c=getch();
+                    if(c=='a')
+                    {
+                        press(30,30);
+                        break;
+                    }
+                    f[20]=1;
+                }
+                f[1]=1;
+            }
+            while(a[1]=='b')//non linear data structure
+            {
+                if(f[8]==0)press(100,350);
+                f[8]=0;
+                cleardevice();
+                screen5();
+                a[4]=getch();
+                if(a[4]=='d')
+                {
+                    press(100,400);
+                    cleardevice();
+                    screen4();
+                    break;
+                }
+                while(a[4]=='a')
+                {
+                    if(f[9]==0)press(100,250);
+                    f[9]=0;
+                    preorder();
+                    back();
+                    char c=getch();
+                    if(c=='a')
+                    {
+                        press(30,30);
+                        break;
+                    }
+                    f[9]=1;
+                }
+                while(a[4]=='b')
+                {
+                    if(f[10]==0)press(100,300);
+                    f[10]=0;
+                    inorder();
+                    back();
+                    char c=getch();
+                    if(c=='a')
+                    {
+                        press(30,30);
+                        break;
+                    }
+                    f[10]=1;
+                }
+                while(a[4]=='c')
+                {
+                    if(f[11]==0)press(100,350);
+                    f[11]=0;
+                    postorder();
+                    back();
+                    char c=getch();
+                    if(c=='a')
+                    {
+                        press(30,30);
+                        break;
+                    }
+                    f[11]=1;
+                }
+                f[8]=1;
+            }
+            f[0]=1;
+        }
+        while(a[0]=='b')//algorithms
+        {
+            if(f[12]==0)press(100,350);
+            f[12]=0;
+            cleardevice();
+            screen6();
+            a[5]=getch();
+            if(a[5]=='d')
+            {
+                press(100,400);
+                cleardevice();
+                screen1();
+                break;
+            }
+            while(a[5]=='a')//searching
+            {
+                if(f[13]==0)press(100,250);
+                f[13]=0;
+                cleardevice();
+                screen7();
+                a[6]=getch();
+                if(a[6]=='b')
+                {
+                    press(100,350);
+                    cleardevice();
+                    screen6();
+                    break;
+                }
+                while(a[6]=='a')
+                {
+                    if(f[14]==0)press(100,250);
+                    f[14]=0;
+                    binarysearch();
+                    back();
+                    char c=getch();
+                    if(c=='a')
+                    {
+                        press(30,30);
+                        break;
+                    }
+                    f[14]=1;
+                }
+                f[13]=1;
+            }
+            while(a[5]=='b')//sorting
+            {
+                if(f[15]==0)press(100,300);
+                f[15]=0;
+                cleardevice();
+                screen8();
+                a[7]=getch();
+                if(a[7]=='b')
+                {
+                    press(100,350);
+                    cleardevice();
+                    screen7();
+                    break;
+                }
+                while(a[7]=='a')
+                {
+                    if(f[16]==0)press(100,250);
+                    f[16]=0;
+                    bubblesort();
+                    back();
+                    char c=getch();
+                    if(c=='a')
+                    {
+                        press(30,30);
+                        break;
+                    }
+                    f[16]=1;
+                }
+                f[15]=1;
+            }
+            while(a[5]=='c')//mst
+            {
+                if(f[17]==0)press(100,350);
+                f[17]=0;
+                cleardevice();
+                screen9();
+                a[8]=getch();
+                if(a[8]=='c')
+                {
+                    press(100,450);
+                    cleardevice();
+                    screen8();
+                    break;
+                }
+                while(a[8]=='a')
+                {
+                    if(f[18]==0)press(100,250);
+                    f[18]=0;
+                    prims_algorithm();
+                    back();
+                    char c=getch();
+                    if(c=='a')
+                    {
+                        press(30,30);
+                        break;
+                    }
+                    f[18]=1;
+                }
+                while(a[8]=='b')
+                {
+                    if(f[19]==0)press(100,350);
+                    f[19]=0;
+                    kruskals_algorithm();
+                    back();
+                    char c=getch();
+                    if(c=='a')
+                    {
+                        press(30,30);
+                        break;
+                    }
+                    f[19]=1;
+                }
+                f[17]=1;
+            }
+            f[12]=1;
+        }
+    }
+    getch();
+    closegraph();
+    return 0;
+}
+
+
